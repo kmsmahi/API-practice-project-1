@@ -14,12 +14,38 @@ const loadLesson=(id)=>{
 };
 const displayWords=(words)=>{
     const wordContainer=document.getElementById('word-container');
-    // wordContainer.innerHTML='';
+    wordContainer.innerHTML='';
+    if(words.length===0){
+        wordContainer.innerHTML=`
+        <div class="col-span-3 text-center space-y-6">
+                <img class="w-[96px] h-[96px] mx-auto" src="assets/alert-error.png" alt="">
+                <h1 class="bangla text-xl font-medium text-gray-100">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</h1>
+                <h1 class="bangla text-4xl text-gray-100 font-semibold">নেক্সট Lesson এ যান</h1>
+        </div>
+        `
+    }
+    // {
+    // "id": 1,
+    // "level": 3,
+    // "word": "Abundant",
+    // "meaning": null,
+    // "pronunciation": "অবানডান্ট"
+    // }
     words.forEach((word)=>{
         console.log(word);
         const wordDiv=document.createElement('div');
         wordDiv.innerHTML=`
-        
+        <div class="bg-white w-[300px] rounded-xl px-6 py-4 shadow-md text-center ">
+                <h1 class="text-3xl font-bold">${word.word?word.word:'word not found'}</h1>
+                <h1 class="text-1xl font-semibold mt-[10px]">Meaning /Pronounciation</h1>
+                <h1 class="text-xl bangla text-black mt-[10px]">${word.meaning?word.meaning:'meaning not found'}/${word.pronunciation?word.pronunciation:'pronunciation not found'}</h1>
+                <div class="flex justify-between items-center mt-[30px]">
+                <button class="btn rounded-[8px] bg-[#1A91FF10] hover:bg-[#1A91FF60]"><i class="fa-solid fa-circle-info"></i></button>
+                <button class="btn rounded-[8px] bg-[#1A91FF10] hover:bg-[#1A91FF60]"><i class="fa-solid fa-volume-high"></i></button>
+        </div>
+                
+
+            </div>
         `;
         wordContainer.appendChild(wordDiv);
     })
