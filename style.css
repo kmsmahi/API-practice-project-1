@@ -32,3 +32,8 @@ border: 1px solid rgba(24, 24, 27, 0.2);
 border-radius: 4px;
 background: rgba(255, 255, 255, 1);
 }
+
+.main-sec-3{
+border-radius: 24px;
+background: rgb(192, 175, 175);
+}
