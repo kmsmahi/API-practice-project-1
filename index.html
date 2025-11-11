@@ -1,82 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Api project-1</title>
     <!-- css -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <!-- tailwind+daisy ui cdn -->
-     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-     <!-- font awosome cdn -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-     <!-- fonts integration -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-</head>
-<body class="container mx-auto">
-
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- font awosome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- fonts integration -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="container mx-auto">
     <!-- header part -->
-     <header class="header h-[96px] mt-[20px] flex justify-between px-4 py-6">
-        <section class="head-sec-1 flex items-center gap-[4px]">
-            <h1 class="head-sec-1-h1 w-[72px] h-[28px]">English</h1>
-            <img class="w-10 h-10 " src="assets/logo.png" alt="">
-            <h1 class="bangla head-sec-1-h2 w-[56px] h-[28px]">জানালা</h1>
-        </section>
-        <section class="head-sec-2 flex gap-4">
-            <div class="head-sec-2-div px-3 py-2 flex gap-[6px] w-[83px] h-[40px]">
-                <img class="head-img w-[15px] h-[20px]" src="assets/fa-circle-question.png" alt="">
-                <button class="faq w-[29px] h-[20px]">FAQ</button>
-            </div>
-            <div class="head-sec-2-div px-3 py-2 flex gap-[6px] w-[93px] h-[40px]">
-                <img class="head-img w-[15px] h-[20px]" src="assets/fa-book-open.png" alt="">
-                <button class="faq w-[29px] h-[20px]">LEARN</button>
-            </div>
-            <div class="head-sec-2-div px-3 py-2 flex gap-[6px] w-[103px] h-[40px]">
-                <img class="head-img w-[15px] h-[20px]" src="assets/fa-arrow-right-from-bracket.png" alt="">
-                <button class="faq w-[29px] h-[20px]">LOGOUT</button>
-            </div>
+    <header class="header h-[96px] mt-[20px] flex justify-between px-4 py-6">
+      <section class="head-sec-1 flex items-center gap-[4px]">
+        <h1 class="head-sec-1-h1 w-[72px] h-[28px]">English</h1>
+        <img class="w-10 h-10" src="assets/logo.png" alt="" />
+        <h1 class="bangla head-sec-1-h2 w-[56px] h-[28px]">জানালা</h1>
+      </section>
+      <section class="head-sec-2 flex gap-4">
+        <div class="head-sec-2-div px-3 py-2 flex gap-[6px] w-[83px] h-[40px]">
+          <img
+            class="head-img w-[15px] h-[20px]"
+            src="assets/fa-circle-question.png"
+            alt=""
+          />
+          <button class="faq w-[29px] h-[20px]">FAQ</button>
+        </div>
+        <div class="head-sec-2-div px-3 py-2 flex gap-[6px] w-[93px] h-[40px]">
+          <img
+            class="head-img w-[15px] h-[20px]"
+            src="assets/fa-book-open.png"
+            alt=""
+          />
+          <button class="faq w-[29px] h-[20px]">LEARN</button>
+        </div>
+        <div class="head-sec-2-div px-3 py-2 flex gap-[6px] w-[103px] h-[40px]">
+          <img
+            class="head-img w-[15px] h-[20px]"
+            src="assets/fa-arrow-right-from-bracket.png"
+            alt=""
+          />
+          <button class="faq w-[29px] h-[20px]">LOGOUT</button>
+        </div>
+      </section>
+    </header>
 
-        </section>
-
-     </header>
-
-     <!-- main part -->
-      <main>
-        <section class="main-sec-1 flex items-center w-11/12 mx-auto">
-
-            <div class="banner-text flex-1">
-            <h1 class="h-[48px] font-bold text-4xl"><span class="text-sky-400 mb-[25px]">English</span> is Easy!!</h1>
-            <p class="bangla h-[92px] text-1xl mb-[5px]">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
-            <input class="input-1 w-[320px] h-[40px] mb-[15px] p-4" type="text" placeholder="Enter your name" class="input" /><br>
-            <input class="input-1 w-[320px] h-[40px] p-4" type="text" placeholder="Enter your password" class="input" />
+    <!-- main part -->
+    <main>
+      <section class="main-sec-1 flex items-center w-11/12 mx-auto">
+        <div class="banner-text flex-1">
+          <h1 class="h-[48px] font-bold text-4xl">
+            <span class="text-sky-400 mb-[25px]">English</span> is Easy!!
+          </h1>
+          <p class="bangla h-[92px] text-1xl mb-[5px]">
+            আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা
+            আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে
+            অন্য একটি Level এ
+          </p>
+          <input
+            class="input-1 w-[320px] h-[40px] mb-[15px] p-4"
+            type="text"
+            placeholder="Enter your name"
+            class="input"
+          /><br />
+          <input
+            class="input-1 w-[320px] h-[40px] p-4"
+            type="text"
+            placeholder="Enter your password"
+            class="input"
+          />
         </div>
         <div class="banner-img flex-1">
-            <img src="assets/hero-student.png" alt="">
+          <img src="assets/hero-student.png" alt="" />
         </div>
+      </section>
+      <section class="main-sec-2 mt-[100px]">
+        <h1 class="h-[51px] font-bold text-4xl text-center items-center">
+          <span class="text-sky-400">Let's</span> Learn Vocabularies
+        </h1>
+        <div id="lesson-div" class="flex gap-[15px] justify-center"></div>
+      </section>
+      <section id="spinner" class=" flex justify-center items-center py-10 hidden">
+        <span class="loading loading-bars loading-xs"></span>
+        <span class="loading loading-bars loading-sm"></span>
+        <span class="loading loading-bars loading-md"></span>
+        <span class="loading loading-bars loading-lg"></span>
+        <span class="loading loading-bars loading-xl"></span>
+      </section>
 
-        </section>
-        <section class="main-sec-2 mt-[100px]">
-            <h1 class="h-[51px] font-bold text-4xl text-center items-center"><span class="text-sky-400">Let's</span> Learn Vocabularies </h1>
-            <div id="lesson-div" class="flex gap-[15px] justify-center">
-                
-            </div>
+      <section
+        id="word-container"
+        class="main-sec-3 w-11/12 mx-auto p-10 my-10 mt-[40px] grid grid-cols-3 gap-5 bg-gray-200"
+      >
+        <div class="col-span-3 text-center space-y-6">
+          <h1 class="bangla text-xl font-medium text-gray-100">
+            আপনি এখনো কোন Lesson Select করেন ni
+          </h1>
+          <h1 class="bangla text-4xl text-gray-100 font-semibold">
+            একটি Lesson Select করুন।
+          </h1>
+        </div>
+      </section>
 
-        </section>
+      <!-- Modal Structure -->
+      <div
+        id="info-modal"
+        class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+      >
+        <div class="bg-white w-[350px] rounded-xl p-6 text-center relative">
+          <button
+            id="close-modal"
+            class="absolute top-2 right-3 text-gray-500 hover:text-gray-800 text-xl"
+          >
+            &times;
+          </button>
+          <h1 id="modal-word" class="text-2xl font-bold mb-2"></h1>
+          <p id="modal-meaning" class="text-lg text-gray-700 mb-2"></p>
+          <p
+            id="modal-pronunciation"
+            class="text-md text-gray-600 italic mb-2"
+          ></p>
+          <p id="modal-example" class="text-md text-gray-600 mb-4"></p>
+          <p id="modal-synonyms" class="text-md text-gray-600"></p>
+        </div>
+      </div>
+    </main>
 
-        <section id="word-container" class="main-sec-3 w-11/12 mx-auto  p-10 my-10 mt-[40px]  grid grid-cols-3 gap-5 bg-gray-200">
-            <div class="col-span-3 text-center space-y-6">
-                <h1 class="bangla text-xl font-medium text-gray-100">আপনি এখনো কোন Lesson Select করেন ni</h1>
-                <h1 class="bangla text-4xl text-gray-100 font-semibold"> একটি Lesson Select করুন।</h1>
-            </div>
-            
-            
-
-        </section>
-      </main>
-    
     <script src="api1.js"></script>
-</body>
+  </body>
 </html>
