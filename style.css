@@ -1,43 +1,20 @@
 *{
- font-family: poppins;
+    font-family: "Poppins", sans-serif;
 }
-.bangla{
- font-family: Hind Siliguri;
- color: rgba(24, 24, 27, 1);
+.font-bangla{
+     font-family: "Hind Siliguri", sans-serif;
 }
-.head-sec-1-h1{
-color: rgba(24, 24, 27, 1);
-font-size: 20px;
-font-weight: 600;
+.navbar-end{
+    box-sizing: border-box;
+    border: 1px solid rgba(66, 42, 213, 1);
+    border-radius: 4px;
 }
-.faq{
-color: rgba(66, 42, 213, 1);
-font-size: 14px;
-font-weight: 600;
+.navbar{
+    box-sizing: border-box;
+    border: 1px solid rgba(198, 189, 189, 1);
+    backdrop-filter: blur(40px);
+    background: rgba(186, 222, 255, 0.26);
 }
-.head-sec-2-div{
-box-sizing: border-box;
-border: 1px solid rgba(66, 42, 213, 1);
-border-radius: 4px;
-}
-.header{
-box-sizing: border-box;
-border: 1px solid rgba(198, 189, 189, 1);
-backdrop-filter: blur(40px);
-background: rgba(186, 222, 255, 0.26);
-}
-.input-1{
-box-sizing: border-box;
-border: 1px solid rgba(24, 24, 27, 0.2);
-border-radius: 4px;
-background: rgba(255, 255, 255, 1);
-}
-
-.main-sec-3{
-border-radius: 24px;
-
-}
-.active{
-background-color: #1A91FF;
-color: white;
+.hover-btn:hover{
+    background-color: rgba(66, 42, 213, 0.1);
 }
