@@ -1,159 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Api practice project-1</title>
-    <!-- font awosome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <!-- font integration -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <!-- for daisy ui -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/daisyui@5"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <!-- for tailwind css -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- for css -->
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- header part -->
-    <header>
-      <!-- navbar -->
-      <div class="navbar bg-base-100 shadow-sm justify-between border-b-2 h-[96px]">
-        <div class="navbar-start">
-          <div class="dropdown">
-            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
-            </div>
-            <ul
-              tabindex="-1"
-              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-            >
-              <li><a>Item 3</a></li>
-            </ul>
-          </div>
-           <div class="flex items-center gap-2 max-w-[1920px] mx-15">
-            <h1 class="text-[20px]">English</h1>
-            <img src="assets/logo.png" alt="">
-            <h1 class="font-bangla text-[20px]">জানালা</h1>
-           </div>
-        </div>
-        <div class="flex gap-5">
-          <div class="navbar-end">
-             <a class="btn btn-outline btn-primary text-blue-700 hover-btn"><span><i class="fa-solid fa-circle-question" style="color: #0660a5;"></i></span>FAQ</a>
-        </div>
-        <div class="navbar-end">
-             <a class="btn btn-outline btn-primary text-blue-700 hover-btn"><span><i class="fa-solid fa-graduation-cap" style="color: #0965ab;"></i></span>Learn</a>
-        </div>
-        <div class="navbar-end">
-             <a class="btn btn-outline btn-primary text-blue-700 hover-btn"><span><i class="fa-solid fa-arrow-right-from-bracket" style="color: #0965ab;"></i></span>Logout</a>
-        </div>
-        </div>
-        
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>English Vocabulary Learning</title>
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    crossorigin="anonymous"
+  />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind + Daisy UI -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-gray-50">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto flex justify-between items-center p-4 md:p-6">
+
+      <!-- Logo -->
+      <div class="flex items-center gap-3">
+        <h1 class="text-xl md:text-2xl font-bold">English</h1>
+        <img src="assets/logo.png" alt="Logo" class="h-10 md:h-12" />
+        <h1 class="text-xl md:text-2xl font-bold">জানালা</h1>
       </div>
 
-
-      <div class="banner max-w-[1920px] mx-15 mt-[200px] flex justify-between items-center gap-5">
-        <div class="banner-1">
-          <h1 class="text-[48px] font-medium mb-[10px]"><span class="text-sky-400">English</span> is easy</h1>
-          <p class="font-bangla text-[20px] font-medium mb-[10px]"> আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ.......</p>
-          <div class="flex flex-col gap-">
-            <input type="text" placeholder="Enter your name" class="input input-primary" /><br>
-            <input type="text" placeholder="Enter your password" class="input input-primary" /><br>
-            <button class="btn btn-primary w-[115px] h-[40px]">Get started</button>
-          </div>
-        </div>
-
-        <div class="banner-2">
-          <img src="assets/hero-student.png" alt="">
-        </div>
+      <!-- Buttons -->
+      <div class="hidden sm:flex gap-3">
+        <a href="#" class="btn btn-outline btn-sm md:btn-md text-blue-700 hover:bg-blue-100">
+          <i class="fa-solid fa-circle-question"></i> FAQ
+        </a>
+        <a href="#" class="btn btn-outline btn-sm md:btn-md text-blue-700 hover:bg-blue-100">
+          <i class="fa-solid fa-graduation-cap"></i> Learn
+        </a>
+        <a href="#" class="btn btn-outline btn-sm md:btn-md text-blue-700 hover:bg-blue-100">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+        </a>
       </div>
-    </header>
-    <!-- main part -->
-    <main>
-    <div class="main-div flex justify-center  mt-[200px]">
-      <h1 class="text-[48px] font-medium mb-[10px]"><span class="text-sky-400">Let's</span> Learn Vocabularies </h1>
-    </div>
-    <div id="lesson-btn" class="flex gap-6 justify-center">
+
+      <!-- Mobile Menu Icon -->
+      <div class="sm:hidden">
+        <i class="fa-solid fa-bars text-2xl"></i>
+      </div>
 
     </div>
-    <div class="search-input flex justify-center mt-10">
-      <div class="join">
-  <div>
-    <label class="input validator join-item">
-      
-      <input id="input-search" type="text" placeholder="Search vocabulary" required />
-    </label>
-    
-  </div>
-  <button id="btn-search" class="btn btn-primary join-item">Search</button>
-</div>
+  </header>
+
+  <!-- Banner -->
+  <section class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-6 p-4 md:p-6 mt-6 md:mt-12">
+
+    <div class="md:w-1/2 flex flex-col gap-4">
+      <h1 class="text-3xl md:text-5xl font-bold text-sky-500">English is easy</h1>
+
+      <p class="font-bangla text-gray-700 text-sm md:text-lg">
+        আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। Interactive Lessons আপনাকে নিয়ে যাবে অন্য Level এ...
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-3 mt-4 w-full">
+        <input type="text" placeholder="Enter your name" class="input input-primary w-full" />
+        <input type="password" placeholder="Enter your password" class="input input-primary w-full" />
+        <button class="btn btn-primary w-full sm:w-32">Start</button>
+      </div>
     </div>
 
-    <div id="words" class="bg-gray-200 px-6 py-4  w-11/12 mx-auto my-10 grid grid-cols-3 gap-6 justify-center items-center">
-      <!-- ...... -->
-      
-      <!-- ..... -->
-    <div class="flex flex-col gap-3 justify-center items-center col-span-full p-4">
-      <p class="font-bangla text-[18px] font-medium text-[#79716b] text-center">আপনি এখনো কোন Lesson Select করেন নe</p>
-      <h1 class="font-bangla text-[34px] font-semibold text-[#292524] text-center">একটি Lesson Select করুন। </h1>
+    <div class="md:w-1/2">
+      <img src="assets/hero-student.png" alt="Student" class="w-full md:h-[380px] object-contain" />
+    </div>
+  </section>
+
+  <!-- Lessons -->
+  <main class="max-w-6xl mx-auto p-4 md:p-6 mt-10">
+
+    <h2 class="text-2xl md:text-4xl font-bold text-center mb-6">Let's Learn Vocabularies</h2>
+
+    <div id="lesson-btn" class="flex flex-wrap justify-center gap-3 mb-6"></div>
+
+    <!-- Search -->
+    <div class="flex justify-center mb-8">
+      <div class="join w-full md:w-1/2">
+        <input id="input-search" type="text" placeholder="Search vocabulary" class="input input-bordered join-item flex-1" />
+        <button id="btn-search" class="btn btn-primary join-item">Search</button>
+      </div>
     </div>
 
-    </div>
+    <!-- Words -->
+    <div id="words" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
 
-    <!-- modal -->
+  </main>
 
-    <!-- Open the modal using ID.showModal() method -->
-<!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+  <!-- Modal -->
   <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
-  <div class="modal-box">
-    <div id="word-det-container">
-      
-
+    <div class="modal-box max-w-md p-4 md:p-6">
+      <div id="word-det-container"></div>
+      <div class="modal-action">
+        <form method="dialog">
+          <button class="btn btn-primary">Close</button>
+        </form>
+      </div>
     </div>
-    <div class="modal-action">
-      <form method="dialog">
-        <!-- if there is a button in form, it will close the modal -->
-        <button class="btn">Close</button>
-      </form>
-    </div>
-  </div>
-</dialog>
+  </dialog>
 
-    
-  
-    </main>
-    <!-- footer part -->
-    <footer></footer>
+  <!-- Footer -->
+  <footer class="bg-gray-200 text-center py-6 mt-12">
+    <p class="text-gray-700">© 2025 জানালা. All rights reserved.</p>
+  </footer>
 
-    <script src="api1.js"></script>
-  </body>
+  <!-- External JS -->
+  <script src="api1.js"></script>
+
+</body>
 </html>

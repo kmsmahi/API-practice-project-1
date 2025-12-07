@@ -1,24 +1,69 @@
-*{
-    font-family: "Poppins", sans-serif;
+* {
+  font-family: "Poppins", sans-serif;
 }
-.font-bangla{
-     font-family: "Hind Siliguri", sans-serif;
+
+.font-bangla {
+  font-family: "Hind Siliguri", sans-serif;
 }
-.navbar-end{
-    box-sizing: border-box;
-    border: 1px solid rgba(66, 42, 213, 1);
-    border-radius: 4px;
+
+/* Inputs focus */
+input:focus, .input:focus {
+  outline: none;
+  border-color: #0ea5e9;
+  box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.3);
 }
-.navbar{
-    box-sizing: border-box;
-    border: 1px solid rgba(198, 189, 189, 1);
-    backdrop-filter: blur(40px);
-    background: rgba(186, 222, 255, 0.26);
+
+/* Button hover */
+.btn {
+  transition: all 0.3s ease;
 }
-.hover-btn:hover{
-    background-color: rgba(66, 42, 213, 0.1);
+.btn:hover {
+  transform: translateY(-2px) scale(1.03);
 }
-.active {
-    background-color: #3B82F6; 
-    color: white;
+
+/* Card hover */
+.card-hover {
+  transition: all 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Modal animation */
+.modal-box {
+  animation: fadeIn 0.35s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile Improvements */
+@media (max-width: 640px) {
+
+  header .btn {
+    font-size: 12px;
+  }
+
+  .modal-box {
+    width: 92% !important;
+    margin: 0 auto;
+  }
+
+  #lesson-btn button {
+    width: 100%;
+  }
+
+  .join {
+    flex-direction: column;
+  }
+
+  .join button {
+    width: 100%;
+  }
+
+  .join input {
+    width: 100%;
+  }
 }

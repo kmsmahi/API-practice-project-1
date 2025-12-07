@@ -1,190 +1,135 @@
-// load all the lessons and display in console
+// Load all lessons
 const loadLessons = () => {
   fetch('https://openapi.programming-hero.com/api/levels/all')
-    .then((res) => res.json())
-    .then((jsn) => {
-      displayLessons(jsn.data);
-    })
-    .catch((error) => {
-      console.log(error);
-    })
+    .then(res => res.json())
+    .then(jsn => displayLessons(jsn.data))
+    .catch(err => console.error(err));
 };
 
-// 🔊 FIXED PRONOUNCE FUNCTION
+// Pronounce word
 function pronounceWord(word) {
-  window.speechSynthesis.cancel(); // prevent speech queue blocking
+  window.speechSynthesis.cancel();
   const utterance = new SpeechSynthesisUtterance(word);
-  utterance.lang = "en-US"; // FIXED
+  utterance.lang = "en-US";
   utterance.rate = 1;
   utterance.pitch = 1;
   window.speechSynthesis.speak(utterance);
 }
 
-const removeactive = () => {
-  const allBtn = document.querySelectorAll('.remove-act');
-  allBtn.forEach((btn) => {
-    btn.classList.remove('active');
-  })
-};
+// Remove active class
+const removeActive = () => document.querySelectorAll('.remove-act').forEach(btn => btn.classList.remove('active'));
 
+// Load words for a lesson
 const loadLevelWords = (id) => {
-  const url = `https://openapi.programming-hero.com/api/level/${id}`;
-  fetch(url)
-    .then((res) => res.json())
-    .then((jsn) => {
-      removeactive();
-      const clickBtn = document.getElementById(`active-btn-${id}`);
-      clickBtn.classList.add('active');
+  fetch(`https://openapi.programming-hero.com/api/level/${id}`)
+    .then(res => res.json())
+    .then(jsn => {
+      removeActive();
+      document.getElementById(`active-btn-${id}`).classList.add('active');
       displayLevelWords(jsn.data);
     })
-    .catch((err) => {
-      console.log(err);
-    })
+    .catch(err => console.error(err));
 };
 
+// Display words in cards
 const displayLevelWords = (words) => {
   const mainDiv = document.getElementById('words');
   mainDiv.innerHTML = '';
 
-  if (words.length === 0) {
+  if (!words || words.length === 0) {
     mainDiv.innerHTML = `
-      <div class="flex flex-col gap-3 justify-center items-center col-span-full p-4">
-       <img src="assets/alert-error.png" alt="">
-      <p class="font-bangla text-[18px] font-medium text-[#79716b] text-center">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
-      <h1 class="font-bangla text-[34px] font-semibold text-[#292524] text-center">নেক্সট Lesson এ যান </h1>
-    </div>
-      `
+      <div class="col-span-full text-center p-6">
+        <img src="assets/alert-error.png" class="mx-auto w-24 mb-2">
+        <p class="font-bangla text-gray-500">এই Lesson এ কোন Vocabulary নেই।</p>
+      </div>
+    `;
+    return;
   }
 
-  for (let word of words) {
+  words.forEach(word => {
     const wordCard = document.createElement('div');
+    wordCard.className = "bg-white p-6 rounded-2xl shadow-md border border-gray-100 card-hover";
+
     wordCard.innerHTML = `
-      <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 w-full max-w-md mx-auto">
-
-  <!-- Word Section -->
-  <div class="flex flex-col gap-3 justify-center items-center text-center">
-    <h1 class="text-3xl font-bold text-gray-800">
-      ${word.word ? word.word : "No word found"}
-    </h1>
-
-    <p class="text-lg font-medium text-gray-500">
-      Meaning / Pronunciation
-    </p>
-
-    <h1 class="text-2xl font-bold text-blue-600 font-bangla">
-      “${word.meaning ? word.meaning : 'not found'} / ${word.pronunciation ? word.pronunciation : 'not found'}"
-    </h1>
-  </div>
-
-  <!-- Action Buttons -->
-  <div class="flex justify-between gap-6 mt-6">
-    <button onclick="loadWordDetail(${word.id})" class="btn bg-blue-100 hover:bg-blue-200 text-blue-700 rounded-full p-3 shadow-md transition">
-      <i class="fa-solid fa-circle-info"></i>
-    </button>
-
-    <!-- SOUND BUTTON — FIXED -->
-    <button onclick="pronounceWord('${word.word}')" 
-  class="btn bg-green-100 hover:bg-green-200 text-green-700 rounded-full p-3 shadow-md transition">
-  <i class="fa-solid fa-volume-high"></i>
-</button>
-
-  </div>
-
-</div>
-      `
-    mainDiv.append(wordCard);
-  }
+      <div class="flex flex-col gap-3 justify-center items-center text-center">
+        <h1 class="text-2xl md:text-3xl font-bold text-gray-800">${word.word || "No word"}</h1>
+        <p class="text-sm md:text-lg font-medium text-gray-500">Meaning / Pronunciation</p>
+        <h1 class="text-xl md:text-2xl font-bold text-blue-600 font-bangla">“${word.meaning || 'not found'} / ${word.pronunciation || 'not found'}"</h1>
+      </div>
+      <div class="flex justify-center gap-6 mt-4">
+        <button onclick="loadWordDetail(${word.id})" class="btn bg-blue-100 hover:bg-blue-200 text-blue-700 rounded-full p-3 shadow-md transition">
+          <i class="fa-solid fa-circle-info"></i>
+        </button>
+        <button onclick="pronounceWord('${word.word}')" class="btn bg-green-100 hover:bg-green-200 text-green-700 rounded-full p-3 shadow-md transition">
+          <i class="fa-solid fa-volume-high"></i>
+        </button>
+      </div>
+    `;
+    mainDiv.appendChild(wordCard);
+  });
 };
 
+// Display lessons
 const displayLessons = (lessons) => {
-  const Lessonbtn = document.getElementById('lesson-btn');
-  Lessonbtn.innerHTML = '';
-  for (let lesson of lessons) {
+  const lessonBtn = document.getElementById('lesson-btn');
+  lessonBtn.innerHTML = '';
+  lessons.forEach(lesson => {
     const btnDiv = document.createElement('div');
     btnDiv.innerHTML = `
-       <button id="active-btn-${lesson.level_no}" onclick="loadLevelWords(${lesson.level_no})" class="btn btn-outline btn-primary text-blue-700 hover-btn remove-act">
-         <span><i class="fa-solid fa-graduation-cap" style="color: #0965ab;"></i></span>
-         Lesson-${lesson.level_no}
-       </button>
-      `
-    Lessonbtn.append(btnDiv);
-  }
+      <button id="active-btn-${lesson.level_no}" onclick="loadLevelWords(${lesson.level_no})" class="btn btn-outline btn-primary remove-act text-blue-700 hover:bg-gray-200">
+        <i class="fa-solid fa-graduation-cap text-blue-600"></i> Lesson-${lesson.level_no}
+      </button>
+    `;
+    lessonBtn.appendChild(btnDiv);
+  });
 };
 
+// Load word detail in modal
 const loadWordDetail = (id) => {
-  const url = `https://openapi.programming-hero.com/api/word/${id}`;
-  fetch(url)
-    .then((res) => res.json())
-    .then((jsn) => {
-      displayWordDetail(jsn.data);
-    })
+  fetch(`https://openapi.programming-hero.com/api/word/${id}`)
+    .then(res => res.json())
+    .then(jsn => displayWordDetail(jsn.data))
+    .catch(err => console.error(err));
 };
 
-// create synonym pills
-const createlements = (arr) => {
-  const htmlElements = arr.map((item) => `<span class="btn">${item}</span>`);
-  return (htmlElements.join(' '));
-}
+// Create synonym pills
+const createElements = (arr) => arr.map(item => `<span class="btn btn-sm btn-outline">${item}</span>`).join(' ');
 
+// Display word detail in modal
 const displayWordDetail = (word) => {
   const modalBox = document.getElementById('word-det-container');
   modalBox.innerHTML = `
-      <div class="flex flex-col gap-6 p-6 bg-white rounded-2xl shadow-xl max-w-lg mx-auto">
-
-  <!-- Word + Pronunciation -->
-  <h1 class="text-4xl font-bold text-gray-800 text-center">
-    ${word.word}
-    <span class="text-gray-500 text-2xl font-medium">(${word.pronunciation})</span>
-  </h1>
-
-  <!-- Meaning Section -->
-  <div class="text-center">
-    <h2 class="text-lg font-semibold text-gray-700 mb-1">Meaning</h2>
-    <p class="text-base font-medium text-gray-800">${word.meaning}</p>
-  </div>
-
-  <!-- Example Section -->
-  <div class="text-center">
-    <h2 class="text-3xl font-bold text-gray-800 mb-2">Example</h2>
-    <p class="text-base font-medium text-gray-700 leading-relaxed">
-      ${word.sentence}
-    </p>
-  </div>
-
-  <!-- Synonyms Section -->
-  <div class="text-center">
-    <h2 class="text-2xl font-bold text-gray-800 mb-3">
-      সমার্থক শব্দ গুলো
-    </h2>
-
-    <div class="flex flex-wrap gap-2 justify-center">
-      ${createlements(word.synonyms)}
+    <div class="flex flex-col gap-4 p-4 bg-white rounded-2xl shadow-xl">
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-800 text-center">
+        ${word.word} <span class="text-gray-500 text-xl md:text-2xl font-medium">(${word.pronunciation})</span>
+      </h1>
+      <div class="text-center">
+        <h2 class="text-lg font-semibold text-gray-700">Meaning</h2>
+        <p class="text-base font-medium text-gray-800">${word.meaning}</p>
+      </div>
+      <div class="text-center">
+        <h2 class="text-xl font-bold text-gray-800">Example</h2>
+        <p class="text-base font-medium text-gray-700 leading-relaxed">${word.sentence}</p>
+      </div>
+      <div class="text-center">
+        <h2 class="text-lg font-bold text-gray-800">সমার্থক শব্দ গুলো</h2>
+        <div class="flex flex-wrap gap-2 justify-center mt-2">${createElements(word.synonyms)}</div>
+      </div>
     </div>
-  </div>
-
-</div>
-      `;
+  `;
   document.getElementById('my_modal_5').showModal();
 };
 
-loadLessons();
-
+// Search functionality
 document.getElementById('btn-search').addEventListener('click', () => {
-  const searchInput = document.getElementById('input-search');
-  const searchValue = searchInput.value.trim().toLowerCase();
-
+  const searchValue = document.getElementById('input-search').value.trim().toLowerCase();
   fetch('https://openapi.programming-hero.com/api/words/all')
-    .then((res) => res.json())
-    .then((jsn) => {
-      const allWords = jsn.data;
-      const filterWords = allWords.filter((word) =>
-        word.word.toLowerCase().includes(searchValue)
-      );
-      displayLevelWords(filterWords);
-    })
+    .then(res => res.json())
+    .then(jsn => {
+      const filtered = jsn.data.filter(word => word.word.toLowerCase().includes(searchValue));
+      displayLevelWords(filtered);
+    });
 });
 
-speechSynthesis.addEventListener("voiceschanged", () => {
-  console.log("Voices loaded");
-});
-
+// Initialize
+loadLessons();
